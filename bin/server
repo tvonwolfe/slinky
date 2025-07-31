@@ -1,0 +1,5 @@
+#!/bin/sh
+
+environment="${RACK_ENV:-development}"
+port="${PORT:-9292}"
+bundle exec puma -e "$environment" -p "$port"
