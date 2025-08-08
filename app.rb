@@ -74,6 +74,7 @@ post "/links" do
   new_link = Link.create(url: params[:url])
 
   content_type "text/vnd.turbo-stream.html"
+  status 201
 
   <<-HTML
     <turbo-stream action="append" target="links">
@@ -87,12 +88,5 @@ post "/links" do
         #{render_new_url_form}
       </template>
     </turbo-stream>
-  HTML
-end
-
-get "/links/new" do
-  <<~HTML
-    <turbo-frame id="new_link_frame">
-    </turbo-frame>
   HTML
 end
